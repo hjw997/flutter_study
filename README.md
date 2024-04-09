@@ -10,9 +10,13 @@
 
 ### 学习的开发环境 
 > Flutter 3.19.3 • channel stable • https://github.com/flutter/flutter.git
+> 
 > Framework • revision ba39319843 (5 weeks ago) • 2024-03-07 15:22:21 -0600
+> 
 > Engine • revision 2e4ba9c6fb
+> 
 > Tools • Dart 3.3.1 • DevTools 2.31.1
+> 
 
 # 特别说明:
 ## a_flutter_learn项目是学习历程的代码笔记.便于后期复习.
