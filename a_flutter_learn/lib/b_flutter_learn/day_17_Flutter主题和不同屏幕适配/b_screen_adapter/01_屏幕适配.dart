@@ -1,6 +1,8 @@
 /// flutter 中的屏幕适配 --看笔记
 ///
 
+
+import 'size_fit.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -21,6 +23,8 @@ class HYHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// 要初始化:
+    HYSizeFit.initial();
     return Scaffold(
       appBar: AppBar(
         title: const Text("基础组件"),
@@ -43,11 +47,14 @@ class HYHomeContentState extends State<HYHomeContent> {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
+        width: 200.px,
+        height: 150.px,
         color: Colors.amber,
         /// 面向 point 开发, 也叫-逻辑分辨率 如 iPhone6 4.7英寸 对角线长度.
         /// 以 iPhone 6 为例子:  逻辑宽高 : w:375pt  ,height = 667pt ,
         /// 因为是 Retain 屏幕, 所以设备像素比(Devicepixelratio:dpi)是 2. 也就是一个点宽 2 个像素, 高 2 个像素.
         /// 对应像素就是: 一个点 宽:2 个像素,高 2 个像素, 物理宽度也就是-像素宽:375 * 2 = 750,高:667*2 = 1334 像素.
+        /// 物理像素 就是屏幕上实际的像素点.
         child: const Text("屏幕适配相关--"),
       ),
     );
