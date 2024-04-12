@@ -7,11 +7,18 @@ class HYSizeFit {
   static late double screenWeight ;
   static late  double dpr ;
 
+  static late double rpx;
+
   static void initial(){
     /// 使用 window 不再需要BuildContext.
     dpr = window.devicePixelRatio;
     screenWidth =  window.physicalSize.width / dpr;
     screenWeight = window.physicalSize.height / dpr;
+
+    ///计算 rpx 大小: 以后所有的 宽高 都*rpx 字体也乘 rpx
+    rpx = screenWidth / 750;
+    /// InheritedWidget .
+
 
   }
 
