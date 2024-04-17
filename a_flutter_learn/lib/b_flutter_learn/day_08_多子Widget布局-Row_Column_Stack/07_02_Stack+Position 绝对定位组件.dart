@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() => runApp(const MyApp());
 
@@ -38,47 +40,44 @@ class HYHomeContent extends StatefulWidget {
 class HYHomeContentState extends State<HYHomeContent> {
   @override
   Widget build(BuildContext context) {
-    /// Stack 默认的大小是包裹内容.
-    /// 类似安卓中的 FrameLayout .
-    ///
-    /// 也可以使用 Container 限制大小, 配合 fit : StackFit.expand,
-    return Stack(
-    /// * Stack默认的大小是包裹内容的
-    /// *  - alignment: 从什么位置开始排布所有的子Widget
-    /// *  - fit: expand(很少) 将子元素拉伸到尽可能大
-    /// *  - overflow: 超出部分如何处理
-      alignment: AlignmentDirectional.center,
 
-      ///  StackFit.loose 按照子元素原本大小排布.
-      ///  StackFit.expand 将子元素拉伸到尽可能大
+    /// Positioned 用在 Stack 中就是 "有位置"的组件,用来精确定位.
+    /// 但是注意如果 Positioned 没有设置任何属性,就等于 没有包裹Positioned,就是"无位置组件"
+    /// 因为 Positioned 是 ParentDataWidget<StackParentData> 类型的,只是记录数据,
+    /// 帮助 Stack 后面给 Positioned 精确布局.
+    return Stack(
+      alignment: AlignmentDirectional.center,
       fit: StackFit.loose,
+      ///clipBehavior:  如果溢出 Stack 后怎么处理.
+      clipBehavior:Clip.none,
       children: [
-        /// Container 不设置尺寸,只设置 child,并且设置 alignment
-        /// 因为在无界的时候(column 垂直无界) 尽可能小,小到和 child 一样.
-        /// 在有边界的方向上尽可能大(此处因为 Column 交叉轴上是屏幕宽度)
-        /// 因为要使用 alignment 对子组件摆放.
-        /// 最终是 宽度是屏幕宽度,高度是尽可能小,这里是包裹子组件
         Container(
           color: Colors.orange,
           alignment: Alignment.center,
-          height: 30,
-          child: Text(
+          height: 80,
+          width: 80,
+          child: const Text(
             "123",
             style: TextStyle(fontSize: 20),
           ),
         ),
-        Container(
-          color: Colors.blueAccent,
-          height: 50,
-          child: Text(
-            "456",
-            style: TextStyle(fontSize: 20),
+        /// Positioned如果不设置(或者设置不全)对齐方式,就是会默认按照Stack 设置的去布局.
+
+        Positioned(
+          left: 0,
+          child: Container(
+            color: Colors.blueAccent,
+            height: 50,
+            child: const Text(
+              "456",
+              style: TextStyle(fontSize: 20),
+            ),
           ),
         ),
         Container(
           width: 100,
           color: Colors.red,
-          child: Text(
+          child: const Text(
             "abc",
             style: TextStyle(fontSize: 20),
           ),
@@ -90,6 +89,22 @@ class HYHomeContentState extends State<HYHomeContent> {
           child: Text(
             "789",
             style: TextStyle(fontSize: 20),
+          ),
+        ),
+        /// 如果溢出 Stack 后怎么处理.
+        /// clipBehavior: Clip.none,--溢出不裁剪.
+        Positioned(
+          bottom: -20,
+          right: -20,
+          child: Container(
+            color: Colors.cyanAccent,
+            width: 40,
+            height: 40,
+            alignment: Alignment.center,
+            child: const Text(
+              "溢",
+              style: TextStyle(fontSize: 20),
+            ),
           ),
         ),
       ],

@@ -40,6 +40,12 @@ class HYHomeContentState extends State<HYHomeContent> {
   Widget build(BuildContext context) {
     /// Stack 默认的大小是包裹内容.
     /// 类似安卓中的 FrameLayout .
+    /// stack: 布局算法---
+    /// 分为: "无位置" 和 "有位置(Positioned包裹的)"
+    /// 先通过 fit 属性把约束传递给 children 中的 "无位置" 子元素,
+    /// 子元素根据 fit : StackFit.expand / StackFit.loose 来决定子元素布局
+    /// 然后 Stack 包裹其中 最大宽 和 高作为自己的大小.
+    /// 如果,children中 全是 "有位置的"那么 ,Stack 就会即可能和父级一样大.
     ///
     /// 也可以使用 Container 限制大小, 配合 fit : StackFit.expand,
     return Stack(
@@ -62,7 +68,7 @@ class HYHomeContentState extends State<HYHomeContent> {
           color: Colors.orange,
           alignment: Alignment.center,
           height: 30,
-          child: Text(
+          child: const Text(
             "123",
             style: TextStyle(fontSize: 20),
           ),
