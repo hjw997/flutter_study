@@ -202,9 +202,10 @@ class _MyHomePageState extends State<MyHomePage> {
 ///   更具体的再学习 主要是 widget 创建后怎么创建了 Element 不太理解.
 ///   一些文章参考: https://juejin.cn/post/7038087364060659725
 ///
-///   从 runApp 开始继续研究:
+///     https://cloud.tencent.com/developer/article/2113826?areaId=106001
+///     后期继续 从 runApp 开始继续研究.
 ///
-///   以上就是三棵树的 关系.
+///     以上就是三棵树的 关系.
 ///
 ///
 ///
