@@ -4,7 +4,7 @@ main(List<String> args) {
   // p.run();
   // p.eat();
 
-  // 级联运算符
+  /// 级联运算符 最好分行去写.
   var p = Person()
             ..name = "why"
             ..eat()
@@ -12,7 +12,7 @@ main(List<String> args) {
 }
 
 class Person {
-  String name;
+  String name = "";
 
   void run() {
     print("running");
