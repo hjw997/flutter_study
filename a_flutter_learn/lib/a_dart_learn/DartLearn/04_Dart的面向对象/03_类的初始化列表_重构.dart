@@ -61,7 +61,7 @@ int testabc(){
 class Person4 {
   final String name;
   final int age;
-  /// 这种冒号后面的 初始化列表可以写各种表达式. 所以 flutter 代码中 大量使用.
+  /// 这种冒号后面的 无论是var final const 以及函数等调用 初始化列表可以写各种表达式. 所以 flutter 代码中 大量使用.⭐️⭐️⭐️⭐️
   Person4(this.name, {int? age}): this.age = tempValue2 > 20? 30: testabc();
 }
 
