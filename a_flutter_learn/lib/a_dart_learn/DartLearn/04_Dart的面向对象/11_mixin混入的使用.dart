@@ -4,6 +4,13 @@ main(List<String> args) {
   sm.flying();
 }
 
+
+/// 如果是 隐式接口 方法必须实现
+/// 使用混入就可以不必须实现
+/// 混入语法:
+/// 1.要混入的 不能用 class ,用 mixin .
+/// 2.用 with .
+
 mixin Runner {
   void running() {
     print("runner running");
@@ -13,7 +20,7 @@ mixin Runner {
 
 mixin Flyer {
   void flying() {
-    print("flying");
+    print("mixin-flying");
   }
 }
 
@@ -27,6 +34,9 @@ class Animal {
   }
 }
 
+/// 混入语法:
+/// 1.要混入的 不能用 class ,用 mixin .
+/// 2.用 with .
 class SuperMan extends Animal with Runner, Flyer {
   @override
   void eating() {
