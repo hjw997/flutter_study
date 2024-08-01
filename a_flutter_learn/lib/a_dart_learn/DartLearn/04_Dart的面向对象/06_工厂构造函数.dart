@@ -66,3 +66,14 @@ class Person {
 
 }
 
+/// 官方给的 工厂构造函数的建议:
+/// https://dart.dev/language/constructors
+/// Factory constructors
+// #
+// When encountering one of following two cases of implementing a constructor, use the factory keyword:
+//
+// The constructor doesn't always create a new instance of its class. Although a factory constructor cannot return null, it might return:
+//
+// an existing instance from a cache instead of creating a new one
+// a new instance of a subtype
+/// 工厂构造方法中 不能使用 this .⚠️⚠️⚠️
