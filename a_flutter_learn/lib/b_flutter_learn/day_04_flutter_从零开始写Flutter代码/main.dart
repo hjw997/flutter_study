@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Container
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -123,3 +123,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+/**总结: ⭐️⭐️⭐️⭐️
+ * 如何创建 flutter 项目:
+ *  flutter create xxx
+ *  PS:项目名称-不可以有驼峰. 但是可以下划线.
+
+ * ⭐️⭐️⭐️⭐️ 区别:
+ * hot reload :  主要是 执行 build 方法(不执行其他的东西 ,比如状态等)
+ * hot restart : 会重新运行整个app 状态发生了改变等也会执行. 状态清零等.
+ */
