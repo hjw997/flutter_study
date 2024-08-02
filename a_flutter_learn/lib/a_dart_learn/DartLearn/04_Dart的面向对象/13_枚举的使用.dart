@@ -14,10 +14,15 @@ main(List<String> args) {
       break;
   }
 
-  print(Colors.values);
+  /// 所有的枚举都有一个 values 属性,获取到这个枚举类型所有的枚举类型.
+  print(Colors.values);/// [Colors.red, Colors.blue, Colors.green]
+
+  /// 每个 枚举值 都有一个 索引值.
   print(Colors.red.index);
 }
 
+
+/// dart 中的枚举.
 enum Colors {
   red,
   blue,
