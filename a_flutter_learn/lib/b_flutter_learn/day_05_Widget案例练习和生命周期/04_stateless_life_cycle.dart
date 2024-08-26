@@ -1,8 +1,8 @@
-import 'package:a_flutter_learn/utils/logger_config.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-void main() => const MyApp();
+import '../../utils/logger_config.dart';
+
+void main() {runApp(const MyApp());}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -22,21 +22,18 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// StatelessWidget 生命周期
+///  > 1.构造方法
+///  > 2.build 方法.
 ///  StatelessWidget 生命周期 很简单. 用的最多的还是StatefulWidget
-///
-class HYHomeContent extends StatefulWidget {
+class HYHomeContent extends StatelessWidget {
   HYHomeContent({super.key}) {
-    logger.i("${LogTag.tag}----构造函数");
+    logger.i("${LogTag.tag}----构造函数调用---");
   }
 
   @override
-  State<HYHomeContent> createState() => _HYHomeContentState();
-}
-
-class _HYHomeContentState extends State<HYHomeContent> {
-  @override
   Widget build(BuildContext context) {
-    logger.i("${LogTag.tag}----build 函数");
+    logger.i("${LogTag.tag}----build 函数---调用");
     return const Placeholder();
   }
 }
