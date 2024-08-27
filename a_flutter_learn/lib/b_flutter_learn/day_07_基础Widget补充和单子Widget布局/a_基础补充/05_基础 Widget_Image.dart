@@ -1,3 +1,4 @@
+import 'package:a_flutter_learn/generated/assets.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -64,20 +65,31 @@ class HYHomeContent extends StatelessWidget {
         ///加载网络图片 ⭐️⭐️⭐️⭐️
         Center(
             child: Container(
+          width: 50,
+          height: 50,
           color: Colors.blue,
           child: Image.network(URL2),
         )),
         verticalSpacer,
 
         /// 加载本地图片
+        /// 可以用脚本:https://blog.csdn.net/u014741977/article/details/136797606
         Center(
           child: Image(
             /// AssetImage 也是一个 ImageProvider 加载本地图片.
             /// 加载本地图片步骤:
             /// 1>.在flutter 项目中创建一个文件夹,存储图片.
             /// 2>.在pubspec.yaml进行配置.
-            image: AssetImage(""),
+            ///image: AssetImage("assets/images/juren.jpeg"), 这种手动写太麻烦容易写错.
+            /// 3.> 自己装了插件 非常好用: https://plugins.jetbrains.com/plugin/15427-flutterassetsgenerator ⭐️⭐️⭐️⭐️
+            image: AssetImage(Assets.assetsImagesJuren),
           ),
+        ),
+        verticalSpacer,
+
+        /// 加载本地图片 工厂构造:
+        Center(
+          child: Image.asset(Assets.homeWish),
         )
       ],
     );

@@ -64,10 +64,15 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+#  PS:注意 如果这里打开上面注释 👆🏻 assets 前面多个空格要删掉,否则会报错.
+#  某个目录下的所有文件. 如 tabbar 下 tabbar/ 就表示该目录下的所有文件.
   assets:
-    - assets/images/
+    - assets/images/juren.jpeg
     - assets/images/tabbar/
     - assets/images/home/
+    - assets/images/
+    - assets/images/2.0x/
+    - assets/images/3.0x/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
