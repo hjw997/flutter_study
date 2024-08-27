@@ -74,11 +74,53 @@ class HYHomeContent extends StatelessWidget {
           //FlatButton --> TextButton
           TextButton(
             onPressed: () => {},
-            child: Text("TextButton"),
+            child: Text("TextButton #1"),
             style: TextButton.styleFrom(backgroundColor: Colors.orange),
           ),
+
+          /// 这里没加间距 会看出有间距. style中有个  final MaterialTapTargetSize? tapTargetSize;
+          TextButton(
+            onPressed: () => {},
+            child: Text("TextButton #2"),
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.blue,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+          ),
+          TextButton(
+            onPressed: () => {},
+            child: Text("TextButton #3"),
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.lightGreenAccent,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+          ),
+          TextButton( /// 就算没有内容 大小是 40 * 64
+            onPressed: () => {},
+            child: Text(""),
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.orange,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+          ),
+          ButtonTheme(
+            minWidth: 30,
+            height: 10,
+            child: TextButton( /// 就算没有内容 大小是 40 * 64
+              ///  @override
+              //   Widget build(BuildContext context) {
+              //     final ButtonStyle? widgetStyle = widget.style;
+              ///因为这里是通过 主题中的上下文中查找,我们可以在外面嵌套一个 ButtonTheme.
+              //     final ButtonStyle? themeStyle = widget.themeStyleOf(context);
+              //     final ButtonStyle defaultStyle = widget.defaultStyleOf(context);
+              ///
+              onPressed: () => {},
+              //textTheme:ButtonTheme(minWidth: 30,height: 30,)
+              child: Text("1"),
+              style: TextButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,padding: EdgeInsets.all(0)),
+            ),
+          ),
           verticalSpacer,
-          //Outlinebutton --边框按钮
+          /// Outlinebutton --边框按钮
           OutlinedButton(
             onPressed: () {},
             child: Text("OutlineButton"),
