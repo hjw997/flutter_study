@@ -39,18 +39,22 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
 
+      /// Align 特点:会尽可能占满父布局
       /// Align 参数:
       /// heightFactor : 子组件的多高倍数
       /// widthFactor  :  子组件的多宽倍数
       /// 最多沾满父布局. 就不能再大了.
-      /// 作用:通过这个 因子来控制 Alin 的大小.
-      body: const Align(
-        heightFactor: 20,
+      /// 作用: 通过这个 因子来控制 Alin 的大小.
+      body: Align(
+        heightFactor: 10,
         widthFactor: 10,
-        alignment: Alignment(1, 1),
-        child: Icon(
-          Icons.pets,
-          size: 50,
+        alignment: Alignment(0, 0),
+        child: Container(
+          color: Colors.greenAccent,
+          child: const Icon(
+            Icons.pets,
+            size: 50,
+          ),
         ),
       ),
     );
