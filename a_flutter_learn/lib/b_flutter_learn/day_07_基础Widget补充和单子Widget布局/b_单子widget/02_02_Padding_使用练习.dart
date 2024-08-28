@@ -38,8 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
+        /// 没有 margin这个组件.
         body: const Padding(
-          ///padding: EdgeInsets.all(8.0),
+          /// padding: EdgeInsets.all(8.0),
           /// 只设置一个边.
           padding: EdgeInsets.only(top: 20),
 
