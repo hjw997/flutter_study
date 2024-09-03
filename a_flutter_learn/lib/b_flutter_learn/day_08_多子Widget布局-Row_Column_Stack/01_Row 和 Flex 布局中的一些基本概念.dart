@@ -41,9 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
        * Row特点:
        *  mainAxisSize: 主轴上占据多大?
        *  - 水平方向尽可能占据比较大的空间(默认值)
-       *    * 水平方向也是希望包裹内容, 那么设置mainAxisSi ze = min
+       *     * 水平方向也是希望包裹内容, 那么设置 mainAxisSize: MainAxisSize.min ,默认值是max
        *  - 垂直方向包裹内容
-       * MainAxisAlignment: 主抽上子组件怎么摆放.
+       * MainAxisAlignment: 主抽上子组件怎么摆放(前提该轴上有剩余空间 ⭐️⭐️⭐️⭐️,然后才考虑怎么去摆放) .
        *  - start: 主轴的开始位置挨个摆放元素(默认值)
        *  - end: 主轴的结束位置挨个摆放元素
        *  - center: 主轴的中心点对齐
@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
 
         /// 基线对齐 .交叉抽 上是基线对齐:很少用.
-        //textBaseline: TextBaseline.alphabetic,
+        /// textBaseline: TextBaseline.alphabetic,
         children: [
           Container(
             color: Colors.green,
@@ -108,3 +108,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+/**
+ * PS : textBaseLine 是对 Row 中有文本起作用
+ *      verticalDirection : 是对 Column 起作用的.
+ */
