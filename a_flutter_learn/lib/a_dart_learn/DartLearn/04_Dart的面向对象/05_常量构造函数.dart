@@ -4,7 +4,7 @@ main(List<String> args) {
   const p_1 = const Person("why");
   /// 常量构造方法 创建的对象,如果将结果赋值给 const 修饰的标识符时,const 可以省略.
   const p_2 = Person("why");
-  /// 常量构造函数创建出来的对象 属性值一样,创建对象就是指向同一块内存的.
+  /// 常量构造函数创建出来的对象属性值如果一样,创建对象就是指向同一块内存的.
  print(identical(p_1, p_2));
 
   const p1 = Person1("why", 20);
@@ -26,6 +26,7 @@ class Person1 {
 
   /// 常量构造函数创建出来的对象 属性值一样,创建对象就是指向同一块内存的.
   const Person1(this.name, this.age);
+  /// 因为是构造函数所以也可以是命名的常量构造函数.
   const Person1.withAgeAndName(this.name,this.age);
 
 }

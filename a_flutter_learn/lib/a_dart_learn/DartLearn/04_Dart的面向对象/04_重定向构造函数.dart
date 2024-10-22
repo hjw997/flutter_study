@@ -13,6 +13,6 @@ class Person {
   // Person(this.name): age = 0;
   /// 构造函数的重定向 ---这个构造中去调用另一个构造函数就叫构造函数的重定向.
   Person(String name): this._internal(name, 0);
-  /// 这个也是个构造函数-命名构造函数
+  /// 这个也是个构造函数-命名构造函数,外界也可以调用,只是这么个写法,没有什么神秘的.
   Person._internal(this.name, this.age);
 }
