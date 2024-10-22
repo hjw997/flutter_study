@@ -3,7 +3,7 @@ import 'dart:io';
 void main(List<String> args) {
   print("main 之前---");
   getNetWorkData().then((value) {
-    print(value);
+    print("then:$value" );
   });
   print("main 之后---");
 }
