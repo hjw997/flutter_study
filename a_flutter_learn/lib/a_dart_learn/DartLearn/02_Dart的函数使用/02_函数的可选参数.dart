@@ -42,8 +42,8 @@ void sayHello3(String name, {int age = 10, double height = 3.14}) {
 }
 
 
-/// 函数参数可以有默认值---只有可选参数才能有默认值,如果给 name 默认值就报错❌.
-/// 如果可选参数不给默认值,是null 的时候 就得加 类型? 这样说明是个可null 的类型.
+/// 函数参数可以有默认值---只有可选参数 (位置可选 和 命名可选) 才能有默认值,如果给 name(此处name是 必选参数) 默认值就报错❌.
+/// 如果可选参数不给默认值,是null 的时候 就得加 类型? 这样说明是个 可null 的类型.
 /// void sayHello4(String name = "aaa" ❌,{int? age,double height = 1.80}) {
 void sayHello4(String name,{int? age,double height = 1.80}) {
   print('age is : $age height is $height' );
