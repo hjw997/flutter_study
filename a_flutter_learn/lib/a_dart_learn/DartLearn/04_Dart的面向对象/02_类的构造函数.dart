@@ -19,7 +19,7 @@ main(List<String> args) {
   print(p1);
 
   /// 2.知识点补充: Object和 dynamic 的区别
-  /// 父类应用指向子类对象
+  /// 父类引用指向子类对象
   /// Object 和 dynamic
   /// Object调用方法时, 编译时会报错
   /// dynamic调用方法时, 编译时不报错, 但是运行时会存在安全隐患
@@ -27,17 +27,19 @@ main(List<String> args) {
    Object obj = "why";
    /// print(obj.substring(1)); ///编译时候报错.
 
-  /// 明确声明 的类型:就是 就类似 Any一样.
+  /// 明确声明的类型: 就是 就类似 Any一样.
+  /// 也就是说 dynamic 也就是一种类型 和 swift 的Any类似.
   dynamic obj_d = 123;
   /// print(obj_d.substring(1));///编译时不报错, 但是运行时会存在安全隐患
   ///
-  /// 而 var 是类型推导:
+  /// 而 var 是类型推导,来申明一个变量的.
   var  t = "abc"; ///var 类型推导为 字符串类型.
 }
 
 class Person0 {
   String name;
   int age;
+  /// 语法糖构造方法:方法内部就是给成员变量赋值.
   Person0(this.name,this.age);
 }
 
@@ -47,7 +49,7 @@ class Person {
   int age;
   double? height;
 
-  Person(this.name, this.age); ///添加后不破坏以前的 构造函数.
+  Person(this.name, this.age); /// 添加后不破坏以前的构造函数.
   /// Person(this.name, this.age, this.height); //这样很多代码就要改.
 
   /// 命名构造函数
