@@ -11,6 +11,21 @@ main(List<String> args) {
   const p2 = Person1.withAgeAndName("why",20);
   print(identical(p1, p2));///true
 
+
+  ///  ⭐️⭐️⭐️⭐️ 常量构造函数也可以当做普通的对象初始化:
+  /// 使用默认的 new 来创建,new 可以省略.
+  final p3 = new Person("lmj");
+  final p4 = new Person("lmj");
+  print("----------------p3-----------p4-------------------");
+  print(p3 == p4); ///false
+  print(identical(p3, p4));///false
+
+  ///常量构造函数 当做普通的对象初始化 new 可以省略.
+  var p5 =  Person("lmj");
+  var p6 =  Person("lmj");
+  print(p5 == p6); ///false
+  print(identical(p5, p6));///false
+
 }
 
 class Person {
@@ -18,6 +33,11 @@ class Person {
   final String name;
   /// 常量构造函数创建出来的对象 属性值一样,创建对象就是指向同一块内存的.
   const Person(this.name);
+
+  /// Const constructors can't have a body.  常量构造函数不能有函数体:
+  // const Person.withName(this.name){
+  //
+  // };
 }
 
 class Person1 {

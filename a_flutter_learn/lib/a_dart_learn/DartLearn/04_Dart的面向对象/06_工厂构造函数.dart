@@ -8,6 +8,7 @@ main(List<String> args) {
   /// 使用 final 就像 swift 用 let , kotlin 用val . 更安全. 如果需要修改 就用 var .
   final p1 = Person.withName("why");
   final p2 = Person.withName("why");
+
   print(identical(p1, p2));
 }
 
@@ -22,12 +23,12 @@ main(List<String> args) {
 //   final String color = "red";
 //
 //   //const Person0(this.name);
-//   ///'color' is final and was given a value when it was declared, so it can't be set to a new value.
-//   /// const Person0(this.color, this.name);
+  ///'color' is final and was given a value when it was declared, so it can't be set to a new value.
+  /// const Person0(this.color, this.name);
 // }
 
 
-/// 普通的构造函数: 会自动返回创建出来的对象, 不能手动的返回 构造方法中 return this.
+/// 普通的构造函数: 会自动返回创建出来的对象, 不能手动的返回 ,也就是构造方法中不能有 return this.
 /// 工厂构造函数最大的特点: 使用 factory 修饰, 可以手动的返回一个对象 ⭐️⭐️⭐️⭐️ ⭐️⭐️⭐️⭐️
 ///                     无论是你自己创建的还是从别的地方获取的都可以.
 class Person {
@@ -37,12 +38,13 @@ class Person {
   static final Map<String, Person> _nameCache = {};
   static final Map<String, Person> _colorCache = {};
 
-  /// PS 一旦自己实现构造函数,无论是 普通构造  命名构造函数,那么系统默认的构造函数是不会存在的 , Person() 不会存在.
+  /// PS 一旦自己实现任何构造函数, 无论是 普通构造 命名构造函数,那么系统默认的构造函数是不会存在的 , Person() 不会存在.
   Person(this.name, this.color);/// 普通构造函数
 
   /// factory 修饰 , 工厂构造 ⭐️⭐️⭐️⭐️ ⭐️⭐️⭐️⭐️
   factory Person.withName(String name) {
     if (_nameCache.containsKey(name)) {
+      /// 这里就可以 用 return 返回一个指定的对象.
       return _nameCache[name] ?? Person("abc", "color");
     } else {
       /// Person(); Person() 不会存在.
@@ -67,13 +69,18 @@ class Person {
 }
 
 /// 官方给的 工厂构造函数的建议:
-/// https://dart.dev/language/constructors
+/// https://dart.dev/language/constructors 这个文档很好解释了各种构造函数.
 /// Factory constructors
 // #
 // When encountering one of following two cases of implementing a constructor, use the factory keyword:
 //
-// The constructor doesn't always create a new instance of its class. Although a factory constructor cannot return null, it might return:
+// 1.The constructor doesn't always create a new instance of its class. Although a factory constructor cannot return null, it might return:
 //
-// an existing instance from a cache instead of creating a new one
-// a new instance of a subtype
+//  1.1 > an existing instance from a cache instead of creating a new one 从缓存中创建一个现有的实例，而不是创建一个新的实例
+//  1.2 > a new instance of a subtype : 子类的新实例
+
+// 2.:You need to perform non-trivial work prior to constructing an instance. This could include checking arguments or doing any other processing that cannot be handled in the initializer list.
+//
+// Tip
+// You can also handle late initialization of a final variable with late final (carefully!).
 /// 工厂构造方法中 不能使用 this .⚠️⚠️⚠️
