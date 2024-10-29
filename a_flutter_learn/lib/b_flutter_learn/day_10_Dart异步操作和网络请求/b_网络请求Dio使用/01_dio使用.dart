@@ -1,3 +1,4 @@
+import 'package:a_flutter_learn/service/http_request.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dio/dio.dart'; /// 首先到如这个库--一个主文件
@@ -50,6 +51,14 @@ class HYHomeContentState extends State<HYHomeContent> {
     // TODO: implement initState
     super.initState();
 
+    //dioBaseUsage();
+
+    requestData();
+
+  }
+
+  /// 1. Dio 最简单使用:
+  void dioBaseUsage(){
     /// 做网络请求:
     /// installing - dio: ^5.7.0
     /// 1.创建Dio对象
@@ -60,6 +69,15 @@ class HYHomeContentState extends State<HYHomeContent> {
     }).catchError((error){
       print(error);
     });
+  }
 
+  /// 2.Dio 封装使用:
+  void requestData(){
+    /// 使用封装工具请求:
+    HttpRequest.request("https://httpbin.org/get",params: {"name":"coderwhy"}).then((res){
+      print("HttpRequest封装工具返回结果:$res");
+    }).catchError((err){
+
+    });
   }
 }
